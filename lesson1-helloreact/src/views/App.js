@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.scss';
+import Mycomponent from './example/Mycomponent';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         >
           <p>chao mung den voi react co ban</p>
         </a>
+        <Mycomponent/>
       </header>
     </div>
   );
