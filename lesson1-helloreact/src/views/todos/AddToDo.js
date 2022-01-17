@@ -3,29 +3,29 @@ import { toast } from 'react-toastify';
 
 class AddToDo extends React.Component{
 
-state={
-    title:''
-}
+    state={
+        title:''
+    }
 
-handleOnChangeTitle = (event) =>{
-    this.setState({
-        title: event.target.value
-    })
-}
-handleAddToDo = () =>{
-    if(!this.state.title){
-       toast.error('Missing title');
-        return;
+    handleOnChangeTitle = (event) =>{
+        this.setState({
+            title: event.target.value
+        })
     }
-    let todo = {
-        id : Math.floor(Math.random() * 10000),
-        title: this.state.title
+    handleAddToDo = () =>{
+        if(!this.state.title){
+        toast.error('Missing title');
+            return;
+        }
+        let todo = {
+            id : Math.floor(Math.random() * 10000),
+            title: this.state.title
+        }
+        this.props.addNewToDo(todo);
+        this.setState({
+            title: ""
+        })
     }
-    this.props.addNewToDo(todo);
-    this.setState({
-        title: ""
-    })
-}
 
     render(){
 

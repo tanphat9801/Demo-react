@@ -5,20 +5,35 @@ import { toast } from 'react-toastify';
 
 class ListToDoApp extends React.Component{
 
-state={
-    listToDo: [
-        {id:'123', title:"doing homework"},
-        {id:"456", title:"fixing bugs"},
-        {id:"789", title:"relax and coffee"},
-    ]
-}
-addNewToDo = (todo) =>{
-    this.setState({
-        listToDo: [...this.state.listToDo, todo]
-    })
+    state={
+        listToDo: [
+            {id:'123', title:"doing homework"},
+            {id:"456", title:"fixing bugs"},
+            {id:"789", title:"relax and coffee"},
+        ]
+    }
 
-    toast.success("Wow so easy!");
-}
+    //add button
+    addNewToDo = (todo) =>{
+        this.setState({
+            listToDo: [...this.state.listToDo, todo]
+        })
+
+        toast.success("Wow so easy!");
+    }
+
+    //delete item 
+    handleDelete = (todo) =>{
+        let currentTodos = this.state.listToDo;
+        currentTodos = currentTodos.filter(item => item.id !== todo.id);
+        this.setState({
+            listToDo: currentTodos
+        })
+        toast.success("Delete success");
+        // console.log('check delete todo ' , todo);
+    }
+
+
     render () {
         let {listToDo} = this.state
         return(
@@ -33,7 +48,9 @@ addNewToDo = (todo) =>{
                                     <div className="css-btn">
                                         <button className="edit">Edit
                                         </button>
-                                        <button className="delete">Delete
+                                        <button className="delete"
+                                        onClick={()=> this.handleDelete(item)}
+                                        >Delete
                                         </button>
                                     </div>
                                 </div>
