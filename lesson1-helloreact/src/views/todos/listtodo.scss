@@ -4,6 +4,10 @@
         cursor: pointer;
     }
 
+    input{
+        outline: none;
+    }
+
     width: 500px;
     margin: 0 auto;
 
@@ -25,10 +29,11 @@
             display: flex;
             justify-content: space-between;
             padding: 10px;
-
-            .css-btn{
+            .css-todo{
+                display: flex;
+                
                 button{
-                    margin: 2px;
+                    margin: 5px;
                 }
             }
         }
