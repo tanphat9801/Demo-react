@@ -7,9 +7,9 @@ class Componentex1 extends React.Component {
 
   handleShowHide = () => {
     this.setState({
-        showJobs: !this.state.showJobs// td no se gan nguoc lai 
-    })
-  }
+      showJobs: !this.state.showJobs, // td no se gan nguoc lai
+    });
+  };
 
   render() {
     let { arrJob } = this.props;
@@ -17,28 +17,27 @@ class Componentex1 extends React.Component {
     // console.log('check conditional ', this.state);
     //  console.log("check prop>>>:", this.props);
     return (
-      <>    
-            {showJobs === false ? //? : cu phap rut gon cua dieu kien 
-                    <div>
-                    <button onClick={() => this.handleShowHide()}>show</button>
-                    </div>
-            :
-                <>
-                    <div className="job-list">
-                    {arrJob.map((item, index) => {
-                        return (
-                        <div key={item.id}>
-                            {item.title} - {item.salary}
-                        </div>
-                        );
-                    })}
-                    </div>
-                    <div>
-                    <button onClick={() => this.handleShowHide()}>hide</button>
-                    </div>
-                </>
-            }
-
+      <>
+        {showJobs === false ? ( //? : cu phap rut gon cua dieu kien
+          <div>
+            <button onClick={() => this.handleShowHide()}>show</button>
+          </div>
+        ) : (
+          <>
+            <div className="job-list">
+              {arrJob.map((item, index) => {
+                return (
+                  <div key={item.id}>
+                    {item.title} - {item.salary}
+                  </div>
+                );
+              })}
+            </div>
+            <div>
+              <button onClick={() => this.handleShowHide()}>hide</button>
+            </div>
+          </>
+        )}
       </>
       //hứng data truyền từ component cha
       //de render duoc arr tu component cha dung vong lap map()

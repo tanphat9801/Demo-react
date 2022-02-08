@@ -2,6 +2,7 @@ import React from "react";
 import AddToDo from "./AddToDo";
 import "./listtodo.scss";
 import { toast } from 'react-toastify';
+import Color from "../HOC/color";
 
 class ListToDoApp extends React.Component{
 
@@ -121,4 +122,4 @@ class ListToDoApp extends React.Component{
 
 }
 
-export default ListToDoApp;
+export default Color(ListToDoApp);
